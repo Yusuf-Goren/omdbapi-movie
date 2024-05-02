@@ -17,11 +17,15 @@ export default function SearchFilters() {
     searchYear: searchYear,
     searchType: searchType,
   });
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const target = e.target as typeof e.target & {
+      title: { value: string };
+      year: { value: string };
+    };
     let tempSearchFilter = searchFilter;
-    tempSearchFilter.searchName = e.target.title.value;
-    tempSearchFilter.searchYear = e.target.year.value;
+    tempSearchFilter.searchName = target.title.value;
+    tempSearchFilter.searchYear = Number(target.year.value);
 
     setSearchFilter(tempSearchFilter);
     dispatch(changeFilter(tempSearchFilter));
