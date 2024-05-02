@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { MovieType, SingleMovieType, initialStateSingleMovieType } from "../../types";
+import { FilterType, MovieType, SingleMovieType, initialStateSingleMovieType } from "../../types";
 import axios from "axios";
 
 
@@ -107,7 +107,7 @@ export default movieSlice.reducer
 export const fetchMoviesWithFilters = createAsyncThunk(
     "fetchMoviesWithFilters",
 
-    async (filter: any) => {
+    async (filter: FilterType) => {
         const { page, searchType, searchName, searchYear } = filter
 
         let apiUrl = `${process.env.REACT_APP_API_BASE_URL}/?s=${searchName}&apikey=${process.env.REACT_APP_API_KEY}&page=${page}`;
@@ -129,7 +129,7 @@ export const fetchMoviesWithFilters = createAsyncThunk(
 export const fetchSingleMovie = createAsyncThunk(
     "fetchSingleMovie",
 
-    async (imdbId: any) => {
+    async (imdbId: string) => {
 
         let apiUrl = `${process.env.REACT_APP_API_BASE_URL}/?i=${imdbId}&apikey=${process.env.REACT_APP_API_KEY}`;
 

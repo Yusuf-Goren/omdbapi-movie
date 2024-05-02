@@ -2,6 +2,7 @@ import star from "../images/star.png";
 import defaultMovieImg from "../images/movie-default-image.png";
 
 export default function MovieCard(movie: any) {
+  console.log(movie);
   return (
     <div className="movie-card">
       <div className="img-movie">

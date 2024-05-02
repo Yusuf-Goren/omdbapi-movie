@@ -17,8 +17,17 @@ export type MovieType = {
 
 };
 
+export type FilterType = {
+    page: number,
+    searchType: string,
+    searchName: string,
+    searchYear: number
+}
+
 export type SingleMovieType = {
     Title: string,
+    Actors: string,
+    Plot: string,
     Year: string,
     ImdbID: string,
     Runtime: string,
@@ -32,6 +41,8 @@ export type SingleMovieType = {
 
 export const initialStateSingleMovieType: SingleMovieType = {
     Title: "",
+    Actors: "",
+    Plot: "",
     Year: "",
     ImdbID: "",
     Runtime: "",
