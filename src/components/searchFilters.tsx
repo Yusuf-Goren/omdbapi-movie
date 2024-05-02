@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input, Label, Select } from "semantic-ui-react";
+import { Button, Input, Select } from "semantic-ui-react";
 import { useFetchMovies } from "../hooks/useFetchMovies";
 import { searchTypeMenu } from "../utils/consts";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import { AppDispatch, RootState } from "../state/store";
 import { changeFilter } from "../state/movie/movieSlice";
 
 export default function SearchFilters() {
-  const { isLoading, isError } = useFetchMovies();
+  const { isLoading } = useFetchMovies();
   const dispatch = useDispatch<AppDispatch>();
   const { searchType, searchName, searchYear } = useSelector(
     (state: RootState) => state.movie
@@ -22,7 +22,6 @@ export default function SearchFilters() {
     let tempSearchFilter = searchFilter;
     tempSearchFilter.searchName = e.target.title.value;
     tempSearchFilter.searchYear = e.target.year.value;
-    console.log(tempSearchFilter);
 
     setSearchFilter(tempSearchFilter);
     dispatch(changeFilter(tempSearchFilter));
@@ -41,7 +40,7 @@ export default function SearchFilters() {
           />
         </div>
         <div className="filter">
-          <Label>Filter with release year</Label>
+          <label>Filter with release year</label>
           <Input
             defaultValue={searchFilter.searchYear || ""}
             type="number"
@@ -52,10 +51,9 @@ export default function SearchFilters() {
           />
         </div>
         <div className="filter">
-          <Label>Filter with type</Label>
+          <label>Filter with type</label>
           <Select
             onChange={(e, result) => {
-              console.log(result.value);
               let searchTypeTemp: "movie" | "series" | "episode";
               if (
                 result.value === "movie" ||
@@ -75,8 +73,8 @@ export default function SearchFilters() {
             options={searchTypeMenu}
           />
         </div>
-        <div>
-          <Button> Search </Button>
+        <div className="filter">
+          <Button color="blue"> Search </Button>
         </div>
       </div>
     </form>

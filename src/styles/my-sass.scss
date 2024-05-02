@@ -29,6 +29,23 @@ $small: 700px;
   z-index: 99999999;
 }
 
+.table-pagination-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ui.selection.dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.ui.selection.dropdown .dropdown.icon.clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .movie-card {
   background-color: #212133;
   padding: 1em;
@@ -51,6 +68,13 @@ $small: 700px;
   text-align: start;
 }
 
+.movie-text-title {
+  color: aqua;
+  font-weight: 500;
+}
+.return-button {
+  margin-bottom: 1em;
+}
 .general-data {
   display: flex;
   align-items: center;
@@ -95,4 +119,19 @@ $small: 700px;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
+}
+
+.no-data-text {
+  font-size: 25px;
+  color: red;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-weight: 500;
+}
+
+.filter label {
+  background-color: rgb(209, 209, 209);
+  padding: 1em;
+  border-radius: 5px;
+  font-weight: 500;
 }

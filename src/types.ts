@@ -10,6 +10,7 @@ export type MovieState = {
 };
 
 export type MovieType = {
+    Poster: string | undefined;
     Title: string,
     Year: string,
     imdbID: string

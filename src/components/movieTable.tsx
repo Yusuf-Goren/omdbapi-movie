@@ -11,6 +11,7 @@ import { MovieType } from "../types";
 import { RootState } from "../state/store";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import defaultMovieImg from "../images/movie-default-image.png";
 
 export default function MovieTable({ movieList }: any) {
   const navigate = useNavigate();
@@ -21,9 +22,10 @@ export default function MovieTable({ movieList }: any) {
       <TableHeader>
         <TableRow>
           <TableHeaderCell>Index</TableHeaderCell>
+          <TableHeaderCell>Movie Image</TableHeaderCell>
           <TableHeaderCell>Movie Title</TableHeaderCell>
           <TableHeaderCell>Release Date</TableHeaderCell>
-          <TableHeaderCell>imdbID</TableHeaderCell>
+          <TableHeaderCell>IMDb ID</TableHeaderCell>
         </TableRow>
       </TableHeader>
 
@@ -37,7 +39,19 @@ export default function MovieTable({ movieList }: any) {
             className={"cursor-pointer" + (index % 2 === 1 ? " active" : "")}
           >
             <TableHeaderCell> {index + 1 + (page - 1) * 10} </TableHeaderCell>
+            <TableCell>
+              <img
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src = defaultMovieImg;
+                }}
+                src={movie.Poster}
+                width={50}
+                alt=""
+              />
+            </TableCell>
             <TableCell> {movie.Title} </TableCell>
+
             <TableCell>{movie.Year}</TableCell>
             <TableCell>{movie.imdbID}</TableCell>
           </TableRow>
