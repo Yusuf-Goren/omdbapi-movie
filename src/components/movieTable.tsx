@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import defaultMovieImg from "../images/movie-default-image.png";
 
-export default function MovieTable(movieList: any) {
+export default function MovieTable({ movieList }: any) {
   const navigate = useNavigate();
   const { page } = useSelector((state: RootState) => state.movie);
 
