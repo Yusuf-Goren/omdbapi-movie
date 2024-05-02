@@ -4,6 +4,4 @@ export const searchTypeMenu = [
     { key: "episode", value: "episode", text: "Episode" }
 ]
 
-export const movieApi = "https://www.omdbapi.com"
 
-export const apiKey = "2777a497"
